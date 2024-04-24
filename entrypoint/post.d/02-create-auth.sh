@@ -1,6 +1,8 @@
 #!/bin/bash
 
-mkdir -p /var/www/localhost/auth/
+AUTH_FILE=/var/www/localhost/auth/digest_pw
+
+mkdir -p $(dirname $AUTH_FILE)
 
 IFS=";" read -ra entries <<< "$ACCESS"
 
@@ -10,5 +12,5 @@ do
     user=$(echo $entry| cut -d: -f1)
     realm=$(echo $entry| cut -d: -f2)
     pass=$(echo $entry| cut -d: -f3)
-    (echo -n "$user:$realm:" && echo -n "$user:$realm:$pass" | md5sum | cut -d- -f1 ) >> /var/www/localhost/auth/digest_pw
+    (echo -n "$user:$realm:" && echo -n "$user:$realm:$pass" | md5sum | cut -d- -f1 ) >> $AUTH_FILE
 done
