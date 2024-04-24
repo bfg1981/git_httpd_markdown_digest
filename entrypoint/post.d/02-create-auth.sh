@@ -2,6 +2,13 @@
 
 AUTH_FILE=/var/www/localhost/auth/digest_pw
 
+if [ -s $AUTH_FILE ]
+then
+  echo "Authorization file is already present, will not override"
+else
+  echo "Creating authorization file"
+fi
+
 mkdir -p $(dirname $AUTH_FILE)
 
 IFS=";" read -ra entries <<< "$ACCESS"
