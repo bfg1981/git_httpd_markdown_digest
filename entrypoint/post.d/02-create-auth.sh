@@ -5,8 +5,14 @@ AUTH_FILE=/var/www/localhost/auth/digest_pw
 if [ -s $AUTH_FILE ]
 then
   echo "Authorization file is already present, will not override"
+  exit 0
 else
   echo "Creating authorization file"
+fi
+
+if [ -n "$DEFAULT_REALM" ]
+then
+  sed -i -e "s/General/${DEFAULT_REALM}/g" /etc/apache2/conf.d/conf_digest.conf
 fi
 
 mkdir -p $(dirname $AUTH_FILE)
