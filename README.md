@@ -6,6 +6,13 @@ This image inherits the base `git_httpd` repository/webhook variables and the
 `git_httpd_markdown` `STRAPDOWN_*` metadata defaults. It adds digest-auth setup
 for the served site.
 
+## Repository and image
+
+- Source repository: [bfg1981/git_httpd_markdown_digest](https://github.com/bfg1981/git_httpd_markdown_digest)
+- DockerHub image: [therealbfg/git_httpd_markdown_digest](https://hub.docker.com/r/therealbfg/git_httpd_markdown_digest)
+- Upstream source repository: [bfg1981/git_httpd_markdown](https://github.com/bfg1981/git_httpd_markdown)
+- Upstream DockerHub image: [therealbfg/git_httpd_markdown](https://hub.docker.com/r/therealbfg/git_httpd_markdown)
+
 ## Environment variables
 
 Inherited from `git_httpd`:
